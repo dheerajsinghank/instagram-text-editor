@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:text_editor/src/font_option_model.dart';
 import 'package:text_editor/text_editor_data.dart';
 
@@ -38,6 +39,10 @@ class _FontFamilyPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final fontOptionModel = TextEditorData.read(context).fontOptionModel;
 
+    final style = GoogleFonts.getFont(font).copyWith(
+      color: isSelected ? Colors.orange : Colors.white,
+    );
+
     return GestureDetector(
       onTap: () => fontOptionModel.selectFontFamily(font),
       child: Container(
@@ -51,10 +56,7 @@ class _FontFamilyPicker extends StatelessWidget {
         child: Center(
           child: Text(
             'Aa',
-            style: TextStyle(
-              color: isSelected ? Colors.orange : Colors.white,
-              fontFamily: font,
-            ),
+            style: style,
           ),
         ),
       ),
