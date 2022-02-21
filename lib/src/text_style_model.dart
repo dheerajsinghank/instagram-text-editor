@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 enum TextBackgroundStatus { enable, exchange, disable }
 
@@ -61,7 +62,13 @@ class TextStyleModel extends ChangeNotifier {
   }
 
   void changeFontFamily(String value) {
-    this.textStyle = this.textStyle!.copyWith(fontFamily: value);
+    final googleFont = GoogleFonts.getFont(value).copyWith(
+      fontStyle: this.textStyle?.fontStyle,
+      fontWeight: this.textStyle?.fontWeight,
+    );
+
+    this.textStyle =
+        this.textStyle!.copyWith(fontFamily: googleFont.fontFamily);
 
     notifyListeners();
   }
