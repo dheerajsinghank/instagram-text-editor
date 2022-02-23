@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   //     ),
                   //   ),
                   // ),
-                  onEditCompleted: (style, align, text) {
+                  onEditCompleted: (fontFamily, style, align, text) {
                     setState(() {
                       _text = text;
                       _textStyle = style;

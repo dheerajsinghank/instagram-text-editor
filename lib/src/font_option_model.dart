@@ -21,6 +21,7 @@ class FontOptionModel extends ChangeNotifier {
 
   // Font color options
   List<Color>? colors;
+
   // late Color pickedColor;
 
   FontOptionModel(this.textStyleModel, List<String> fonts, {this.colors}) {

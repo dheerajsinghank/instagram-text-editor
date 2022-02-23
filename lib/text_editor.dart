@@ -22,7 +22,7 @@ class TextEditor extends StatefulWidget {
   final List<String> fonts;
 
   /// After edit process completed, [onEditCompleted] callback will be called.
-  final void Function(TextStyle, TextAlign, String) onEditCompleted;
+  final void Function(String?, TextStyle, TextAlign, String) onEditCompleted;
 
   /// [onTextAlignChanged] will be called after [textAlingment] prop has changed
   final ValueChanged<TextAlign>? onTextAlignChanged;
@@ -120,6 +120,7 @@ class _TextEditorState extends State<TextEditor> {
 
   void _editCompleteHandler() {
     widget.onEditCompleted(
+      _textStyleModel.fontFamily,
       _textStyleModel.textStyle!,
       _textStyleModel.textAlign!,
       _textStyleModel.text,

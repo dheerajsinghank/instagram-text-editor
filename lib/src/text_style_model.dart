@@ -64,16 +64,44 @@ class TextStyleModel extends ChangeNotifier {
   }
 
   void changeFontFamily(String value) {
+    fontFamily = value;
+
     this.textStyle = GoogleFonts.getFont(value, textStyle: textStyle!);
 
     notifyListeners();
   }
 
   void changeFontStyle(FontStyle value) {
+    if (fontFamily == null) {
+      this.textStyle = textStyle?.copyWith(
+        fontStyle: value,
+      );
+    } else {
+      this.textStyle = GoogleFonts.getFont(
+        fontFamily!,
+        textStyle: textStyle?.copyWith(
+          fontStyle: value,
+        ),
+      );
+    }
+
     notifyListeners();
   }
 
   void changeFontWeight(FontWeight value) {
+    if (fontFamily == null) {
+      this.textStyle = textStyle?.copyWith(
+        fontWeight: value,
+      );
+    } else {
+      this.textStyle = GoogleFonts.getFont(
+        fontFamily!,
+        textStyle: textStyle?.copyWith(
+          fontWeight: value,
+        ),
+      );
+    }
+
     notifyListeners();
   }
 
