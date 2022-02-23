@@ -6,12 +6,14 @@ enum TextBackgroundStatus { enable, exchange, disable }
 
 class TextStyleModel extends ChangeNotifier {
   String text;
+  String? fontFamily;
   TextStyle? textStyle;
   TextAlign? textAlign;
   late TextBackgroundStatus textBackgroundStatus;
 
   TextStyleModel(
     this.text, {
+    this.fontFamily,
     this.textAlign,
     this.textStyle,
   }) {
@@ -62,14 +64,16 @@ class TextStyleModel extends ChangeNotifier {
   }
 
   void changeFontFamily(String value) {
-    final googleFont = GoogleFonts.getFont(value).copyWith(
-      fontStyle: this.textStyle?.fontStyle,
-      fontWeight: this.textStyle?.fontWeight,
-    );
+    this.textStyle = GoogleFonts.getFont(value, textStyle: textStyle!);
 
-    this.textStyle =
-        this.textStyle!.copyWith(fontFamily: googleFont.fontFamily);
+    notifyListeners();
+  }
 
+  void changeFontStyle(FontStyle value) {
+    notifyListeners();
+  }
+
+  void changeFontWeight(FontWeight value) {
     notifyListeners();
   }
 

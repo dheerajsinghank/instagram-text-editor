@@ -33,6 +33,8 @@ class TextEditor extends StatefulWidget {
   /// [onTextChanged] will be called after [text] prop has changed
   final ValueChanged<String>? onTextChanged;
 
+  final String? fontFamily;
+
   /// The text alignment
   final TextAlign? textAlingment;
 
@@ -66,6 +68,7 @@ class TextEditor extends StatefulWidget {
     this.paletteColors,
     this.backgroundColor,
     this.text = '',
+    this.fontFamily,
     this.textStyle,
     this.textAlingment,
     this.minFontSize = 1,

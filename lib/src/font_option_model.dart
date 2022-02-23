@@ -25,7 +25,7 @@ class FontOptionModel extends ChangeNotifier {
 
   FontOptionModel(this.textStyleModel, List<String> fonts, {this.colors}) {
     // Set default selected font
-    selectedFont = textStyleModel.textStyle?.fontFamily ?? fonts[0];
+    selectedFont = textStyleModel.fontFamily ?? fonts[0];
 
     // Map fonts to fontFamilyModel
     this.fonts = fonts

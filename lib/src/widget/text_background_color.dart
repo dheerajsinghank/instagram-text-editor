@@ -55,7 +55,13 @@ class FormatStyleWidget extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (formatStyle == FormatStyle.bold) {
+          model.changeFontWeight(enabled ? FontWeight.normal : FontWeight.bold);
+        } else {
+          model.changeFontStyle(enabled ? FontStyle.normal : FontStyle.italic);
+        }
+      },
       child: _SwitchButton(
         iconData: formatStyle == FormatStyle.bold
             ? Icons.format_bold
