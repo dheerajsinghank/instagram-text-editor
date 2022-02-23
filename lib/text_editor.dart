@@ -5,8 +5,8 @@ import 'package:text_editor/src/font_option_model.dart';
 import 'package:text_editor/src/text_style_model.dart';
 import 'package:text_editor/src/widget/color_palette.dart';
 import 'package:text_editor/src/widget/font_family.dart';
-import 'package:text_editor/src/widget/font_size.dart';
 import 'package:text_editor/src/widget/font_option_switch.dart';
+import 'package:text_editor/src/widget/font_size.dart';
 import 'package:text_editor/src/widget/text_alignment.dart';
 import 'package:text_editor/text_editor_data.dart';
 
@@ -141,17 +141,21 @@ class _TextEditorState extends State<TextEditor> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const FormatStyleWidget(formatStyle: FormatStyle.bold),
+                      const SizedBox(width: 20),
+                      const FormatStyleWidget(formatStyle: FormatStyle.italic),
+                      const SizedBox(width: 20),
                       TextAlignment(
                         left: widget.decoration?.alignment?.left,
                         center: widget.decoration?.alignment?.center,
                         right: widget.decoration?.alignment?.right,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       FontOptionSwitch(
                         fontFamilySwitch: widget.decoration?.fontFamily,
                         colorPaletteSwitch: widget.decoration?.colorPalette,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       TextBackgroundColor(
                         enableWidget: widget.decoration?.textBackground?.enable,
                         disableWidget:
